@@ -1,6 +1,6 @@
 # :jeans: slack-code-coverage github action
 
-A GitHub action to ping a Slack channel with your projects code coverage
+A GitHub action to ping Slack channel with your projects code coverage. Appended emoji depends on coverage value.
 
 ## Usage
 ```yaml
@@ -15,7 +15,7 @@ jobs:
       - name: send coverage
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        uses: nickatnight/slack-code-coverage-action@master
+        uses: nickatnight/slack-code-coverage-action@v1
         with:
           coverage: "80%"  # typically, this would come from a previous step as an env var
 ```
