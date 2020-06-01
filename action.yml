@@ -1,11 +1,15 @@
 # action.yml
 name: 'slack-code-coverage-action'
 description: 'Send message to Slack channel'
+author: 'nickatnight'
 inputs:
   coverage:  # id of input
-    description: 'Code coverage value'
+    description: 'Code coverage value, including percentage sign'
     required: true
     default: '0%'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+branding:
+  icon: 'code'
+  color: 'blue'
