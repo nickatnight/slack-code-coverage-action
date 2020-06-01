@@ -9,7 +9,7 @@ name: code coverage
 on: [push]
 
 jobs:
-  deploy:
+  slack_coverage:
     runs-on: ubuntu-latest
     steps:
       - name: send coverage
@@ -21,7 +21,7 @@ jobs:
 ```
 
 ## Notes
-- This is super simple and basic. There are obviously paid services like coveralls.io and codecov.io, but this solution happen to satisfy my use case
+- This is super simple and basic. There are obviously paid services like coveralls.io and codecov.io, but this solution happened to satisfy my use case
 - You can customize your webhook [here](https://my.slack.com/services/new/incoming-webhook/)
 
 ## Acknowledgements
