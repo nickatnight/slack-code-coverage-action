@@ -20,6 +20,9 @@ jobs:
           coverage: "80%"  # typically, this would come from a previous step as an env var
 ```
 
+Message Output:
+![Imgur](https://i.imgur.com/My9tadr.png)
+
 ## Notes
 - This is super simple and basic. There are obviously paid services like coveralls.io and codecov.io, but this solution happened to satisfy my use case
 - You can customize your webhook [here](https://my.slack.com/services/new/incoming-webhook/)
