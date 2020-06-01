@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+
+import argparse
+import json
+import requests
+import os
+
+
+def push_message_to_slack() -> None:
+    """Push code coverage to Slack channel
+    """
+    code_coverage = os.getenv("INPUT_COVERAGE", "0%")
+    status = generate_status_emoji(code_coverage)
+    # Set the webhook_url to the one provided by Slack when you create
+    # the webhook at https://my.slack.com/services/new/incoming-webhook/
+    webhook_url = os.getenv("SLACK_WEBHOOK_URL", "")
+    text = f"{code_coverage} - {status}"
+    slack_data = {
+        "text": text
+    }
+
+    response = requests.post(
+        webhook_url, data=json.dumps(slack_data),
+        headers={"Content-Type": "application/json"}
+    )
+    response.raise_for_status()
+
+
+def generate_status_emoji(code_coverage: str) -> str:
+    """return the status based on the code coverage percentage
+
+    :param code_coverage:               coverage including the "%" sign
+    :return:                            emoji value
+    """
+    status = ":sweat:"
+    code_coverage = int(code_coverage[:-1])
+
+    if code_coverage > 0 and code_coverage < 60:
+        status = ":rotating_light:"
+    elif code_coverage >= 60 and code_coverage < 70:
+        status = ":warning:"
+    elif code_coverage >= 70 and code_coverage < 80:
+        status = ":tada:"
+    elif code_coverage >= 80:
+        status = ":fire:"
+
+    return status
+
+
+def main() -> None:
+    push_message_to_slack()
+
+
+if __name__ == "__main__":
+    main()

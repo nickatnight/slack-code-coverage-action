@@ -1,0 +1,11 @@
+# action.yml
+name: 'slack-code-coverage-action'
+description: 'Send message to Slack channel'
+inputs:
+  coverage:  # id of input
+    description: 'Code coverage value'
+    required: true
+    default: '0%'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
