@@ -21,11 +21,12 @@ jobs:
 ```
 
 Message Output:
-![Imgur](https://i.imgur.com/My9tadr.png)
+
+![Imgur](https://i.imgur.com/ZD8qYYT.png)
 
 ## Notes
 - This is super simple and basic. There are obviously paid services like coveralls.io and codecov.io, but this solution happened to satisfy my use case
-- You can customize your webhook [here](https://my.slack.com/services/new/incoming-webhook/)
+- You can customize your workspaces' webhook [here](https://my.slack.com/services/new/incoming-webhook/)
 
 ## Acknowledgements
-- [halik](https://github.com/ironhalik)
+- [halik](https://github.com/ironhalik) - for README template and alpine hacks
