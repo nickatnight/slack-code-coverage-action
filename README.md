@@ -15,7 +15,7 @@ jobs:
       - name: send coverage
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        uses: nickatnight/slack-code-coverage-action@v1
+        uses: nickatnight/slack-code-coverage-action@v1.1
         with:
           coverage: "80%"  # typically, this would come from a previous step as an env var
 ```
